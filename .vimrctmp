@@ -1,0 +1,12 @@
+set number
+syntax on
+set tabstop=4
+set listchars=tab:>-,trail:-,eol:<,nbsp:%,extends:>,precedes:<
+set list
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /^\t*\zs \+/
+autocmd BufWinEnter * match ExtraWhitespace /^\t*\zs \+/
+autocmd InsertEnter * match ExtraWhitespace /^\t*\zs \+/
+autocmd InsertLeave * match ExtraWhitespace /^\t*\zs \+/
+autocmd BufWinLeave * call clearmatches()
